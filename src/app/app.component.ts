@@ -263,8 +263,10 @@ exportexcel(): void {
    // Add the worksheet to the workbook
    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
+  //give excel file name is program+ transaction
+  const fileName = this.selectedMINM + " " + this.selectedTransaction
    // Save the workbook as an Excel file
-   XLSX.writeFile(wb, this.fileName);
+   XLSX.writeFile(wb, fileName + ".xlsx"); // need to add ".XLSX" without this file type should be change so need ".XLSX"
  }
 
 
