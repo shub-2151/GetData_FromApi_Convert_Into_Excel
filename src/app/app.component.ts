@@ -132,8 +132,49 @@ ngoninit(){
   console.log(this.transDetails);
 }
   // ***************************************************************************************************************
+//   Angular to Excel convert - process
+//if convert angular to excel -1. npm install xlsx
+                           // -2- npm install file-saver
+                           // -3- import * as XLSX from 'xlsx';
+                           // /* -4-
+                           // export class AppComponent {
+                           //       /*name of the excel-file which will be downloaded. */
+                           //       fileName= 'ExcelSheet.xlsx';
+
+                           //       exportexcel(): void
+                           //          {
+                           //             /* table id is passed over here */
+                           //             let element = document.getElementById('excel-table'); //id -excel-table
+                           //             const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+
+                           //             /* generate workbook and add the worksheet */
+                           //             const wb: XLSX.WorkBook = XLSX.utils.book_new();
+                           //             XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+                           //             /* save to file */
+                           //             XLSX.writeFile(wb, this.fileName);
+
+                           //          }
+                           //       }
+                           // -5-<table id="excel-table">
+                           //     <tr>
+                           //     <th>ContainerNo</th>
+                           //     <th>SelCondition</th>
+                           //     <th> ContainerCondition</th>
+                           //     <th>GateInDateTime</th>
+                           //  </tr>
+                           //  <tr *ngFor="let sup of Company">
+                           //  // This is the binding part.
+                           //     <td>{{ sup.ContainerNo }}</td>
+                           //     <td>{{ sup.SelCondition }}</td>
+                           //     <td>{{ sup.ContainerCondition }}</td>
+                           //     <td>{{ sup.GateInDateTime }}</td>
+                           //  </tr>
+                           // </table>
+// *********************************************************************************************************************************
 
   fileName= 'ExcelSheet.xlsx';
+
 // .
 // //   exportexcel(): void {
 // //     const element = document.getElementById('excel-table'); //excel-table = Id
@@ -205,7 +246,7 @@ exportexcel(): void {
    console.log(rows);
    console.log(element);
 
-   // Iterate over the rows and extract the data from each column
+   // convert into excel and iterate row as columns
    for (let i = 0; i < rows.length; i++) { // This code for printing columns
      const columns = rows[i].getElementsByTagName('td');
      const cellValue1 = columns[1]?.innerText; // 2nd column value in excel//This code for printing rows //[]-Assign index value
@@ -263,7 +304,7 @@ exportexcel(): void {
    // Add the worksheet to the workbook
    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
-  //give excel file name is program+ transaction
+                  //give excel file name is program+ transaction
   const fileName = this.selectedMINM + " " + this.selectedTransaction
    // Save the workbook as an Excel file
    XLSX.writeFile(wb, fileName + ".xlsx"); // need to add ".XLSX" without this file type should be change so need ".XLSX"
