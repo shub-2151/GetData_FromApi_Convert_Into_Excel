@@ -10,11 +10,11 @@ export class FileUploadComponent {
 
 // *************************************************************************************************************************
 // Upload excel file into angular
-// step-1-npm install ngx-file-drop --save
-//      -2-ng generate component file-upload
-//
-//
-//
+// step-1-Create new angular application
+//      -2- ng generate component file-upload
+//      -3- npm install xlsx --save
+//      -4- import * as XLSX from 'xlsx';
+//      -5- html code & Ts code
 // *************************************************************************************************************************
 
 
